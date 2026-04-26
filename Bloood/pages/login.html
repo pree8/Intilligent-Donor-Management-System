@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BloodLink Nepal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-gray-50 font-sans page-transition">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <span class="text-red-600 text-3xl font-bold">Blood<span class="text-gray-800">Link</span> <span class="text-sm text-gray-600">Nepal</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="text-gray-800 hover:text-red-600 font-medium">Home</a>
+                    <a href="find-donor.html" class="text-gray-800 hover:text-red-600 font-medium">Find a Donor</a>
+                    <a href="request-blood.html" class="text-gray-800 hover:text-red-600 font-medium">Request Blood</a>
+                    <a href="blood-banks.html" class="text-gray-800 hover:text-red-600 font-medium">Blood Banks</a>
+                </div>
+                <div class="hidden md:block">
+                    <a href="login.html" class="text-red-600 font-medium mr-4">Login</a>
+                    <a href="register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">Register</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="../index.html" class="block py-2 text-gray-800 hover:text-red-600">Home</a>
+                <a href="find-donor.html" class="block py-2 text-gray-800 hover:text-red-600">Find a Donor</a>
+                <a href="request-blood.html" class="block py-2 text-gray-800 hover:text-red-600">Request Blood</a>
+                <a href="blood-banks.html" class="block py-2 text-gray-800 hover:text-red-600">Blood Banks</a>
+                <div class="mt-4 flex flex-col space-y-2">
+                    <a href="login.html" class="block py-2 text-red-600">Login</a>
+                    <a href="register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-center">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-gradient-to-r from-red-600 to-red-700 px-6 py-8 text-white text-center">
+                    <h2 class="text-3xl font-bold mb-2">Welcome Back</h2>
+                    <p>Login to your BloodLink account</p>
+                </div>
+                
+                <div class="p-6">
+                    <form class="validate-form">
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" id="email" name="email" class="w-full pl-10 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <label for="password" class="block text-gray-700 font-medium">Password</label>
+                                <a href="forgot-password.html" class="text-sm text-red-600 hover:text-red-800">Forgot Password?</a>
+                            </div>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" id="password" name="password" class="w-full pl-10 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Enter your password" required>
+                                <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-center">
+                            <input type="checkbox" id="remember-me" name="remember-me" class="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-gray-700">Remember me</label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition flex justify-center items-center">
+                            <span>Login</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="relative flex py-5 items-center mt-6">
+                        <div class="flex-grow border-t border-gray-300"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">or continue with</span>
+                        <div class="flex-grow border-t border-gray-300"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500"></i>
+                        </button>
+                        <button class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-facebook text-blue-600"></i>
+                        </button>
+                        <button class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-apple text-gray-900"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-gray-600">
+                            Don't have an account?
+                            <a href="register.html" class="text-red-600 hover:text-red-800 font-medium">Register</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BloodLink</h3>
+                    <p class="text-gray-400">Connecting blood donors and recipients since 2025. Our mission is to make blood donation accessible to everyone in need.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="find-donor.html" class="text-gray-400 hover:text-white">Find a Donor</a></li>
+                        <li><a href="request-blood.html" class="text-gray-400 hover:text-white">Request Blood</a></li>
+                        <li><a href="blood-banks.html" class="text-gray-400 hover:text-white">Blood Banks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span>Dhulikhel, Kavre, Nepal</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+977 01-4444789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>contact@bloodlink.org.np</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">Subscribe to Our Newsletter</h4>
+                        <form class="flex">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                            <button type="submit" class="bg-red-600 px-4 py-2 rounded-r-md hover:bg-red-700 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 BloodLink Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Password visibility toggle
+            const togglePassword = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+            
+            if (togglePassword && passwordInput) {
+                togglePassword.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    
+                    // Toggle eye icon
+                    const eyeIcon = togglePassword.querySelector('i');
+                    if (type === 'password') {
+                        eyeIcon.classList.remove('fa-eye-slash');
+                        eyeIcon.classList.add('fa-eye');
+                    } else {
+                        eyeIcon.classList.remove('fa-eye');
+                        eyeIcon.classList.add('fa-eye-slash');
+                    }
+                });
+            }
+            
+            // Form validation
+            const form = document.querySelector('form.validate-form');
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Basic validation (would be more complex in a real app)
+                    let isValid = true;
+                    const email = document.getElementById('email');
+                    const password = document.getElementById('password');
+                    
+                    if (!validateEmail(email.value)) {
+                        showErrorMessage(email, 'Please enter a valid email address');
+                        isValid = false;
+                    } else {
+                        hideErrorMessage(email);
+                    }
+                    
+                    if (password.value.length < 6) {
+                        showErrorMessage(password, 'Password must be at least 6 characters');
+                        isValid = false;
+                    } else {
+                        hideErrorMessage(password);
+                    }
+                    
+                    if (isValid) {
+                        // Simulate successful login (in real app would check credentials)
+                        window.location.href = '../index.html'; // Redirect to dashboard
+                    }
+                });
+            }
+            
+            function validateEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
+            
+            function showErrorMessage(field, message) {
+                // Remove any existing error message
+                hideErrorMessage(field);
+                
+                // Create and insert error message
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'text-red-500 text-sm mt-1 error-message';
+                errorDiv.textContent = message;
+                field.parentNode.appendChild(errorDiv);
+                
+                // Add error class to field
+                field.classList.add('border-red-500');
+            }
+            
+            function hideErrorMessage(field) {
+                const errorMessage = field.parentNode.querySelector('.error-message');
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+                field.classList.remove('border-red-500');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodLink Nepal - Connect Blood Donors and Recipients</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <span class="text-red-600 text-3xl font-bold">Blood<span class="text-gray-800">Link</span> <span class="text-sm text-gray-600">Nepal</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium">Home</a>
+                    <a href="pages/find-donor.html" class="text-gray-800 hover:text-red-600 font-medium">Find a Donor</a>
+                    <a href="pages/request-blood.html" class="text-gray-800 hover:text-red-600 font-medium">Request Blood</a>
+                    <a href="pages/blood-banks.html" class="text-gray-800 hover:text-red-600 font-medium">Blood Banks</a>
+
+                </div>
+                <div class="hidden md:block">
+                    <a href="pages/login.html" class="text-gray-800 hover:text-red-600 font-medium mr-4">Login</a>
+                    <a href="pages/register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">Register</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-800 hover:text-red-600">Home</a>
+                <a href="pages/find-donor.html" class="block py-2 text-gray-800 hover:text-red-600">Find a Donor</a>
+                <a href="pages/request-blood.html" class="block py-2 text-gray-800 hover:text-red-600">Request Blood</a>
+                <a href="pages/blood-banks.html" class="block py-2 text-gray-800 hover:text-red-600">Blood Banks</a>
+                <div class="mt-4 flex flex-col space-y-2">
+                    <a href="pages/login.html" class="text-gray-800 hover:text-red-600 py-2">Login</a>
+                    <a href="pages/register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-center">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="animated-banner text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">Donate Blood, Save Lives in Nepal</h1>
+                    <p class="text-xl mb-8">Connect with blood donors and recipients across Nepal. BloodLink makes it easy to donate or request blood when needed in Dhulikhel, Kavre and beyond.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="pages/register.html" class="button-animated bg-white text-red-600 px-6 py-3 rounded-md font-medium text-center hover:bg-gray-100 transition">Become a Donor</a>
+                        <a href="pages/request-blood.html" class="button-animated bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-medium text-center hover:bg-white hover:text-red-600 transition">Request Blood</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="assets/images/hero-image-placeholder.png" alt="Blood Donation in Nepal" class="rounded-lg shadow-xl mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How BloodLink Nepal Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="hover-card-effect bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                    <div class="inline-block p-3 bg-red-100 rounded-full text-red-500 mb-4">
+                        <i class="fas fa-user-plus text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Register as a Donor</h3>
+                    <p class="text-gray-600">Join our growing community of Nepali blood donors and help save lives. Register with your blood type and location anywhere in Nepal.</p>
+                </div>
+                <div class="hover-card-effect bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                    <div class="inline-block p-3 bg-red-100 rounded-full text-red-500 mb-4">
+                        <i class="fas fa-search-location text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Find Nearby Donors</h3>
+                    <p class="text-gray-600">Easily search for compatible blood donors or blood banks in your area - from Dhulikhel to other districts across the country.</p>
+                </div>
+                <div class="hover-card-effect bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                    <div class="inline-block p-3 bg-red-100 rounded-full text-red-500 mb-4">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Connect Directly</h3>
+                    <p class="text-gray-600">Our platform enables direct communication between donors, recipients, and medical facilities throughout Nepal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Type Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Understanding Blood Types in Nepal</h2>
+            <p class="text-gray-600 text-center mb-8 max-w-3xl mx-auto">Nepal has unique blood type distribution patterns with O+ and A+ being most common. The Nepal Red Cross Society reports that blood shortages are especially critical in rural areas and during monsoon season.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge mx-auto mb-3">A+</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">A+, AB+</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">A+, A-, O+, O-</p>
+                    </div>
+                </div>
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge mx-auto mb-3">A-</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">A+, A-, AB+, AB-</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">A-, O-</p>
+                        <p class="text-xs text-amber-600 mt-2">Rare in Nepal</p>
+                    </div>
+                </div>
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge mx-auto mb-3">B+</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">B+, AB+</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">B+, B-, O+, O-</p>
+                        <p class="text-xs text-blue-600 mt-2">Common in Nepal</p>
+                    </div>
+                </div>
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge mx-auto mb-3">B-</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">B+, B-, AB+, AB-</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">B-, O-</p>
+                        <p class="text-xs text-amber-600 mt-2">Rare in Nepal</p>
+                    </div>
+                </div>
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge mx-auto mb-3">AB+</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">AB+ only</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">All blood types</p>
+                    </div>
+                </div>
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge mx-auto mb-3">AB-</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">AB+, AB-</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">AB-, A-, B-, O-</p>
+                        <p class="text-xs text-amber-600 mt-2">Very rare in Nepal</p>
+                    </div>
+                </div>
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge critical mx-auto mb-3">O+</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">O+, A+, B+, AB+</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">O+, O-</p>
+                        <p class="text-xs text-blue-600 mt-2">Most common in Nepal</p>
+                    </div>
+                </div>
+                <div class="hover-card-effect bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="blood-type-badge critical mx-auto mb-3">O-</div>
+                    <div class="mt-4">
+                        <p class="font-medium">Can donate to:</p>
+                        <p class="text-gray-600">All blood types</p>
+                        <p class="font-medium mt-2">Can receive from:</p>
+                        <p class="text-gray-600">O- only</p>
+                        <p class="text-xs text-amber-600 mt-2">Critical shortage in Nepal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-shadow">Ready to Make a Difference in Nepal?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of Nepali donors who are helping save lives every day across the country. Your blood donation can make a critical difference for someone in need from Mechi to Mahakali.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="pages/register.html" class="button-animated bg-white text-red-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition">Register Now</a>
+                <a href="pages/find-donor.html" class="button-animated bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-red-600 transition">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BloodLink Nepal</h3>
+                    <p class="text-gray-400">Connecting blood donors and recipients across Nepal since 2025. Our mission is to make blood donation accessible to everyone in need throughout the country.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="pages/find-donor.html" class="text-gray-400 hover:text-white">Find a Donor</a></li>
+                        <li><a href="pages/request-blood.html" class="text-gray-400 hover:text-white">Request Blood</a></li>
+                        <li><a href="pages/blood-banks.html" class="text-gray-400 hover:text-white">Blood Banks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span>Dhulikhel, Kavre, Nepal</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+977 01-4444789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>contact@bloodlink.org.np</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">Subscribe to Our Newsletter</h4>
+                        <form class="flex">
+                            <input type="email" placeholder="Your Email" class="form-input-enhanced px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                            <button type="submit" class="button-animated bg-red-600 px-4 py-2 rounded-r-md hover:bg-red-700 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 BloodLink Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

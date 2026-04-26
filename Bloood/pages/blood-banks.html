@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Banks - BloodLink Nepal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-gray-50 font-sans page-transition">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <span class="text-red-600 text-3xl font-bold">Blood<span class="text-gray-800">Link</span> <span class="text-sm text-gray-600">Nepal</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="text-gray-800 hover:text-red-600 font-medium">Home</a>
+                    <a href="find-donor.html" class="text-gray-800 hover:text-red-600 font-medium">Find a Donor</a>
+                    <a href="request-blood.html" class="text-gray-800 hover:text-red-600 font-medium">Request Blood</a>
+                    <a href="blood-banks.html" class="text-red-600 font-medium">Blood Banks</a>
+                </div>
+                <div class="hidden md:block">
+                    <a href="login.html" class="text-gray-800 hover:text-red-600 font-medium mr-4">Login</a>
+                    <a href="register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">Register</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="../index.html" class="block py-2 text-gray-800 hover:text-red-600">Home</a>
+                <a href="find-donor.html" class="block py-2 text-gray-800 hover:text-red-600">Find a Donor</a>
+                <a href="request-blood.html" class="block py-2 text-gray-800 hover:text-red-600">Request Blood</a>
+                <a href="blood-banks.html" class="block py-2 text-red-600">Blood Banks</a>
+                <div class="mt-4 flex flex-col space-y-2">
+                    <a href="login.html" class="text-gray-800 hover:text-red-600 py-2">Login</a>
+                    <a href="register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-center">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-red-600 py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-white">Blood Banks</h1>
+            <nav class="text-white mt-2">
+                <ol class="list-none p-0 inline-flex">
+                    <li class="flex items-center">
+                        <a href="../index.html" class="hover:text-red-200">Home</a>
+                        <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
+                    </li>
+                    <li>Blood Banks</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-6">Find Blood Banks Near You</h2>
+                
+                <form class="validate-form blood-bank-search">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div>
+                            <label for="location" class="block text-gray-700 font-medium mb-2">Location</label>
+                            <div class="flex">
+                                <input type="text" id="location" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Enter your city or area" required>
+                                <button type="button" id="locate-me" class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+                            </div>
+                            <input type="hidden" id="latitude" name="latitude">
+                            <input type="hidden" id="longitude" name="longitude">
+                        </div>
+                        
+                        <div>
+                            <label for="blood-type" class="block text-gray-700 font-medium mb-2">Blood Type (Optional)</label>
+                            <select id="blood-type" name="blood-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <option value="">Any Blood Type</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="distance" class="block text-gray-700 font-medium mb-2">Distance</label>
+                            <select id="distance" name="distance" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <option value="5">Within 5 km</option>
+                                <option value="10" selected>Within 10 km</option>
+                                <option value="20">Within 20 km</option>
+                                <option value="50">Within 50 km</option>
+                                <option value="100">Within 100 km</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <button type="submit" class="bg-red-600 text-white px-8 py-3 rounded-md font-medium hover:bg-red-700 transition">
+                            <i class="fas fa-search mr-2"></i> Search Blood Banks
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Blood Bank Locations</h2>
+            
+            <div class="w-full h-96 bg-gray-300 rounded-lg shadow-md mb-8">
+                <!-- Map would be embedded here using Google Maps or similar -->
+                <div class="w-full h-full flex items-center justify-center text-gray-500">
+                    <div class="text-center">
+                        <i class="fas fa-map-marked-alt text-6xl mb-4"></i>
+                        <p>Interactive map would be displayed here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Banks List -->
+    <section id="blood-banks-results" class="py-12 bg-white hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Available Blood Banks</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Blood Bank Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 blood-drop">Tribhuvan University Teaching Hospital (TUTH)</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-500"></i>
+                            <span>Dhulikhel, Kavre</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-phone mr-2 text-red-500"></i>
+                            <span>+977-1-4412303</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-clock mr-2 text-red-500"></i>
+                            <span>Open 24 hours</span>
+                        </div>
+                        
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Blood Types:</h4>
+                        <div class="grid grid-cols-4 gap-2 mb-4">
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">A+</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">A-</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">B+</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">B-</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">AB+</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">AB-</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">O+</div>
+                            <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">O-</div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Hospital</span>
+                            <span class="text-sm text-gray-600">3.2 km away</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 flex justify-between">
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                            <i class="fas fa-info-circle mr-1"></i> Details
+                        </a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <i class="fas fa-directions mr-1"></i> Directions
+                        </a>
+                        <a href="tel:+97714412303" class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                            <i class="fas fa-phone mr-1"></i> Call
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Blood Bank Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 blood-drop">National Blood Transfusion Centre (NBTC)</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-500"></i>
+                            <span>Kavre Medical College, Dhulikhel, Kavre</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-phone mr-2 text-red-500"></i>
+                            <span>+977-1-4463268</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-clock mr-2 text-red-500"></i>
+                            <span>8:00 AM - 6:00 PM</span>
+                        </div>
+                        
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Blood Types:</h4>
+                        <div class="grid grid-cols-4 gap-2 mb-4">
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">A+</div>
+                            <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">A-</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">B+</div>
+                            <div class="bg-red-100 text-red-800 px-2 py-1 rounded text-center">B-</div>
+                            <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">AB+</div>
+                            <div class="bg-red-100 text-red-800 px-2 py-1 rounded text-center">AB-</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">O+</div>
+                            <div class="bg-red-100 text-red-800 px-2 py-1 rounded text-center">O-</div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Blood Center</span>
+                            <span class="text-sm text-gray-600">5.1 km away</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 flex justify-between">
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                            <i class="fas fa-info-circle mr-1"></i> Details
+                        </a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <i class="fas fa-directions mr-1"></i> Directions
+                        </a>
+                        <a href="tel:+97714463268" class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                            <i class="fas fa-phone mr-1"></i> Call
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Blood Bank Card 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 blood-drop">Shree Birendra Hospital Blood Bank</h3>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2 text-red-500"></i>
+                            <span>Dhulikhel Primary Hospital, Kavre</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="fas fa-phone mr-2 text-red-500"></i>
+                            <span>+977-1-4261036</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-clock mr-2 text-red-500"></i>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </div>
+                        
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Blood Types:</h4>
+                        <div class="grid grid-cols-4 gap-2 mb-4">
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">A+</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">A-</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">B+</div>
+                            <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">B-</div>
+                            <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">AB+</div>
+                            <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">AB-</div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded text-center">O+</div>
+                            <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">O-</div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">Military Hospital</span>
+                            <span class="text-sm text-gray-600">2.8 km away</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 flex justify-between">
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                            <i class="fas fa-info-circle mr-1"></i> Details
+                        </a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            <i class="fas fa-directions mr-1"></i> Directions
+                        </a>
+                        <a href="tel:+97714261036" class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                            <i class="fas fa-phone mr-1"></i> Call
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="mt-8 flex justify-center">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="py-2 px-4 border border-gray-300 bg-white text-gray-700 rounded-l-md hover:bg-gray-50">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-red-600 text-white hover:bg-red-700">1</a>
+                    <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50">2</a>
+                    <a href="#" class="py-2 px-4 border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50">3</a>
+                    <a href="#" class="py-2 px-4 border border-gray-300 bg-white text-gray-700 rounded-r-md hover:bg-gray-50">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Bank Registration CTA -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-red-600 to-red-800 rounded-lg shadow-lg p-8 text-white">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <h2 class="text-2xl font-bold mb-4">Are you a hospital or blood bank?</h2>
+                        <p class="text-lg">Join BloodLink to connect with blood donors and recipients in your area. Register your facility to help save more lives.</p>
+                    </div>
+                    <div>
+                        <a href="register.html" class="bg-white text-red-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition inline-block">Register Your Facility</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Inventory Status -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Current Blood Inventory Status</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6 text-center">Average blood inventory levels across all registered blood banks in your area</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <!-- Blood Type A+ -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">A+</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-green-500 h-4 rounded-full" style="width: 75%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Sufficient</div>
+                            </div>
+                            
+                            <!-- Blood Type A- -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">A-</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 35%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Low</div>
+                            </div>
+                            
+                            <!-- Blood Type B+ -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">B+</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-green-500 h-4 rounded-full" style="width: 60%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Sufficient</div>
+                            </div>
+                            
+                            <!-- Blood Type B- -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">B-</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-red-500 h-4 rounded-full" style="width: 15%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Critical</div>
+                            </div>
+                            
+                            <!-- Blood Type AB+ -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">AB+</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-green-500 h-4 rounded-full" style="width: 80%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Sufficient</div>
+                            </div>
+                            
+                            <!-- Blood Type AB- -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">AB-</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-red-500 h-4 rounded-full" style="width: 20%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Critical</div>
+                            </div>
+                            
+                            <!-- Blood Type O+ -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">O+</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 40%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Low</div>
+                            </div>
+                            
+                            <!-- Blood Type O- -->
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+                                <div class="text-2xl font-bold text-red-600 mb-1">O-</div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
+                                    <div class="bg-red-500 h-4 rounded-full" style="width: 10%"></div>
+                                </div>
+                                <div class="text-sm text-gray-600">Critical</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex justify-center space-x-6">
+                            <div class="flex items-center">
+                                <span class="inline-block w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                                <span class="text-sm text-gray-600">Sufficient</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="inline-block w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                                <span class="text-sm text-gray-600">Low</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="inline-block w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                                <span class="text-sm text-gray-600">Critical</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Drive Calendar -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Upcoming Blood Donation Drives</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Event</th>
+                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Time</th>
+                                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">June 30, 2025</td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div class="font-medium text-gray-900">Community Blood Drive</div>
+                                            <div class="text-gray-500 text-sm">Red Cross</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>City Hall Plaza</div>
+                                            <div class="text-gray-500 text-sm">123 Main St, Downtown</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>9:00 AM - 4:00 PM</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-right">
+                                            <a href="#" class="text-red-600 hover:text-red-800 font-medium">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">July 5, 2025</td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div class="font-medium text-gray-900">University Blood Drive</div>
+                                            <div class="text-gray-500 text-sm">State University</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>Student Union Building</div>
+                                            <div class="text-gray-500 text-sm">456 Campus Dr, University District</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>10:00 AM - 3:00 PM</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-right">
+                                            <a href="#" class="text-red-600 hover:text-red-800 font-medium">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">July 12, 2025</td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div class="font-medium text-gray-900">Corporate Blood Drive</div>
+                                            <div class="text-gray-500 text-sm">TechCorp Inc.</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>TechCorp Headquarters</div>
+                                            <div class="text-gray-500 text-sm">789 Innovation Pkwy, Business District</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>11:00 AM - 2:00 PM</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-right">
+                                            <a href="#" class="text-red-600 hover:text-red-800 font-medium">Register</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">July 18, 2025</td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div class="font-medium text-gray-900">Community Center Drive</div>
+                                            <div class="text-gray-500 text-sm">Westside Community Association</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>Westside Community Center</div>
+                                            <div class="text-gray-500 text-sm">321 Community Ave, Westside</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                            <div>1:00 PM - 7:00 PM</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-right">
+                                            <a href="#" class="text-red-600 hover:text-red-800 font-medium">Register</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <a href="#" class="text-red-600 hover:text-red-800 font-medium">View All Donation Drives</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BloodLink</h3>
+                    <p class="text-gray-400">Connecting blood donors and recipients since 2025. Our mission is to make blood donation accessible to everyone in need.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="find-donor.html" class="text-gray-400 hover:text-white">Find a Donor</a></li>
+                        <li><a href="request-blood.html" class="text-gray-400 hover:text-white">Request Blood</a></li>
+                        <li><a href="blood-banks.html" class="text-gray-400 hover:text-white">Blood Banks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span>Dhulikhel, Kavre, Nepal</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+977 01-4444789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>contact@bloodlink.org.np</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">Subscribe to Our Newsletter</h4>
+                        <form class="flex">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                            <button type="submit" class="bg-red-600 px-4 py-2 rounded-r-md hover:bg-red-700 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 BloodLink Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

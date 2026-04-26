@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - BloodLink Nepal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-gray-50 font-sans page-transition">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <span class="text-red-600 text-3xl font-bold">Blood<span class="text-gray-800">Link</span> <span class="text-sm text-gray-600">Nepal</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="text-gray-800 hover:text-red-600 font-medium">Home</a>
+                    <a href="find-donor.html" class="text-gray-800 hover:text-red-600 font-medium">Find a Donor</a>
+                    <a href="request-blood.html" class="text-gray-800 hover:text-red-600 font-medium">Request Blood</a>
+                    <a href="blood-banks.html" class="text-gray-800 hover:text-red-600 font-medium">Blood Banks</a>
+                </div>
+                <div class="hidden md:block">
+                    <a href="login.html" class="text-gray-800 hover:text-red-600 font-medium mr-4">Login</a>
+                    <a href="register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">Register</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="../index.html" class="block py-2 text-gray-800 hover:text-red-600">Home</a>
+                <a href="find-donor.html" class="block py-2 text-gray-800 hover:text-red-600">Find a Donor</a>
+                <a href="request-blood.html" class="block py-2 text-gray-800 hover:text-red-600">Request Blood</a>
+                <a href="blood-banks.html" class="block py-2 text-gray-800 hover:text-red-600">Blood Banks</a>
+                <div class="mt-4 flex flex-col space-y-2">
+                    <a href="login.html" class="text-gray-800 hover:text-red-600 py-2">Login</a>
+                    <a href="register.html" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-center">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
+                    <!-- Left Side - Information -->
+                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 md:w-2/5">
+                        <h2 class="text-3xl font-bold mb-6">Join BloodLink</h2>
+                        <p class="mb-6">Register today to become part of our life-saving community. Connect with blood donors, recipients, and blood banks.</p>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold mb-4">As a Donor</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Create your donor profile</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Receive notifications for nearby blood requests</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Track your donation history</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Connect directly with patients in need</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4">As a Recipient</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Create blood requests</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Find nearby compatible donors</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Contact local blood banks</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2"></i>
+                                    <span>Get real-time updates on your requests</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Registration Form -->
+                    <div class="p-8 md:w-3/5">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">Create Account</h2>
+                            <div class="text-gray-600">
+                                Already have an account? 
+                                <a href="login.html" class="text-red-600 hover:text-red-800 font-medium">Login</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Registration Form -->
+                        <form class="validate-form">
+                            <!-- Account Type Selection -->
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">I want to register as</label>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div>
+                                        <input type="radio" id="donor" name="account-type" value="donor" class="hidden peer" checked>
+                                        <label for="donor" class="block border border-gray-300 rounded-md p-4 text-center cursor-pointer hover:border-red-500 peer-checked:border-red-500 peer-checked:bg-red-50">
+                                            <i class="fas fa-user text-2xl mb-2 text-red-600"></i>
+                                            <div class="font-medium">Donor</div>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="recipient" name="account-type" value="recipient" class="hidden peer">
+                                        <label for="recipient" class="block border border-gray-300 rounded-md p-4 text-center cursor-pointer hover:border-red-500 peer-checked:border-red-500 peer-checked:bg-red-50">
+                                            <i class="fas fa-procedures text-2xl mb-2 text-red-600"></i>
+                                            <div class="font-medium">Recipient</div>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="organization" name="account-type" value="organization" class="hidden peer">
+                                        <label for="organization" class="block border border-gray-300 rounded-md p-4 text-center cursor-pointer hover:border-red-500 peer-checked:border-red-500 peer-checked:bg-red-50">
+                                            <i class="fas fa-hospital text-2xl mb-2 text-red-600"></i>
+                                            <div class="font-medium">Organization</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Personal Information -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold mb-4">Personal Information</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label for="first-name" class="block text-gray-700 font-medium mb-2">First Name</label>
+                                        <input type="text" id="first-name" name="first-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name</label>
+                                        <input type="text" id="last-name" name="last-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="birth-date" class="block text-gray-700 font-medium mb-2">Date of Birth</label>
+                                        <input type="date" id="birth-date" name="birth-date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="gender" class="block text-gray-700 font-medium mb-2">Gender</label>
+                                        <select id="gender" name="gender" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                            <option value="" disabled selected>Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Donor-specific information (conditionally shown) -->
+                            <div id="donor-fields" class="mb-6">
+                                <h3 class="text-lg font-semibold mb-4">Donor Information</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label for="blood-type" class="block text-gray-700 font-medium mb-2">Blood Type</label>
+                                        <select id="blood-type" name="blood-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                            <option value="" disabled selected>Select Blood Type</option>
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                            <option value="unknown">I don't know</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="weight" class="block text-gray-700 font-medium mb-2">Weight (kg)</label>
+                                        <input type="number" id="weight" name="weight" min="45" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                        <p class="text-sm text-gray-500 mt-1">Donors must be at least 45 kg (99 lbs)</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Have you donated blood before?</label>
+                                    <div class="flex space-x-4">
+                                        <div class="flex items-center">
+                                            <input type="radio" id="donated-yes" name="donated-before" value="yes" class="h-4 w-4 text-red-600 focus:ring-red-500">
+                                            <label for="donated-yes" class="ml-2 text-gray-700">Yes</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="radio" id="donated-no" name="donated-before" value="no" class="h-4 w-4 text-red-600 focus:ring-red-500" checked>
+                                            <label for="donated-no" class="ml-2 text-gray-700">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="last-donation-field" class="mb-4 hidden">
+                                    <label for="last-donation" class="block text-gray-700 font-medium mb-2">When was your last donation?</label>
+                                    <input type="date" id="last-donation" name="last-donation" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Any medical conditions?</label>
+                                    <div class="flex space-x-4">
+                                        <div class="flex items-center">
+                                            <input type="radio" id="medical-yes" name="medical-conditions" value="yes" class="h-4 w-4 text-red-600 focus:ring-red-500">
+                                            <label for="medical-yes" class="ml-2 text-gray-700">Yes</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="radio" id="medical-no" name="medical-conditions" value="no" class="h-4 w-4 text-red-600 focus:ring-red-500" checked>
+                                            <label for="medical-no" class="ml-2 text-gray-700">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="medical-details-field" class="mb-4 hidden">
+                                    <label for="medical-details" class="block text-gray-700 font-medium mb-2">Please provide details:</label>
+                                    <textarea id="medical-details" name="medical-details" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Location Information -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold mb-4">Location Information</h3>
+                                
+                                <div class="mb-4">
+                                    <label for="location" class="block text-gray-700 font-medium mb-2">Your Location</label>
+                                    <div class="flex">
+                                        <input type="text" id="location" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Enter your city or area" required>
+                                        <button type="button" id="locate-me" class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="latitude" name="latitude">
+                                    <input type="hidden" id="longitude" name="longitude">
+                                </div>
+                                
+                                <div>
+                                    <label for="address" class="block text-gray-700 font-medium mb-2">Full Address</label>
+                                    <textarea id="address" name="address" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Account Security -->
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold mb-4">Account Security</h3>
+                                
+                                <div class="mb-4">
+                                    <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+                                    <input type="password" id="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                    <p class="text-sm text-gray-500 mt-1">Password must be at least 8 characters long with letters, numbers, and special characters</p>
+                                </div>
+                                
+                                <div>
+                                    <label for="confirm-password" class="block text-gray-700 font-medium mb-2">Confirm Password</label>
+                                    <input type="password" id="confirm-password" name="confirm-password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Terms and Conditions -->
+                            <div class="mb-6">
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="terms" name="terms" class="h-5 w-5 mt-1 text-red-600 rounded focus:ring-red-500 border-gray-300" required>
+                                    <label for="terms" class="ml-2 block text-gray-700">
+                                        I agree to BloodLink's <a href="#" class="text-red-600 hover:text-red-800">Terms of Service</a> and <a href="#" class="text-red-600 hover:text-red-800">Privacy Policy</a>.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-md font-medium hover:bg-red-700 transition">
+                                Create Account
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BloodLink</h3>
+                    <p class="text-gray-400">Connecting blood donors and recipients since 2025. Our mission is to make blood donation accessible to everyone in need.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="find-donor.html" class="text-gray-400 hover:text-white">Find a Donor</a></li>
+                        <li><a href="request-blood.html" class="text-gray-400 hover:text-white">Request Blood</a></li>
+                        <li><a href="blood-banks.html" class="text-gray-400 hover:text-white">Blood Banks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span>Dhulikhel, Kavre, Nepal</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+977 01-4444789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>contact@bloodlink.org.np</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">Subscribe to Our Newsletter</h4>
+                        <form class="flex">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                            <button type="submit" class="bg-red-600 px-4 py-2 rounded-r-md hover:bg-red-700 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 BloodLink Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Toggle donation history field
+            const donatedYes = document.getElementById('donated-yes');
+            const donatedNo = document.getElementById('donated-no');
+            const lastDonationField = document.getElementById('last-donation-field');
+            
+            if (donatedYes && donatedNo && lastDonationField) {
+                donatedYes.addEventListener('change', function() {
+                    if (this.checked) {
+                        lastDonationField.classList.remove('hidden');
+                    }
+                });
+                
+                donatedNo.addEventListener('change', function() {
+                    if (this.checked) {
+                        lastDonationField.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Toggle medical conditions field
+            const medicalYes = document.getElementById('medical-yes');
+            const medicalNo = document.getElementById('medical-no');
+            const medicalDetailsField = document.getElementById('medical-details-field');
+            
+            if (medicalYes && medicalNo && medicalDetailsField) {
+                medicalYes.addEventListener('change', function() {
+                    if (this.checked) {
+                        medicalDetailsField.classList.remove('hidden');
+                    }
+                });
+                
+                medicalNo.addEventListener('change', function() {
+                    if (this.checked) {
+                        medicalDetailsField.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Toggle account type fields
+            const donor = document.getElementById('donor');
+            const recipient = document.getElementById('recipient');
+            const organization = document.getElementById('organization');
+            const donorFields = document.getElementById('donor-fields');
+            
+            if (donor && recipient && organization && donorFields) {
+                donor.addEventListener('change', function() {
+                    if (this.checked) {
+                        donorFields.classList.remove('hidden');
+                    }
+                });
+                
+                recipient.addEventListener('change', function() {
+                    if (this.checked) {
+                        donorFields.classList.add('hidden');
+                    }
+                });
+                
+                organization.addEventListener('change', function() {
+                    if (this.checked) {
+                        donorFields.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Location services
+            const locateButton = document.getElementById('locate-me');
+            if (locateButton) {
+                locateButton.addEventListener('click', function() {
+                    if (navigator.geolocation) {
+                        locateButton.textContent = 'Locating...';
+                        locateButton.disabled = true;
+                        
+                        navigator.geolocation.getCurrentPosition(
+                            function(position) {
+                                const lat = position.coords.latitude;
+                                const lng = position.coords.longitude;
+                                
+                                document.getElementById('latitude').value = lat;
+                                document.getElementById('longitude').value = lng;
+                                
+                                // Fetch location name
+                                fetchLocationName(lat, lng);
+                                
+                                locateButton.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
+                                locateButton.disabled = false;
+                            },
+                            function(error) {
+                                console.error('Error obtaining location', error);
+                                locateButton.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
+                                locateButton.disabled = false;
+                                alert('Unable to retrieve your location. Please enter manually.');
+                            }
+                        );
+                    } else {
+                        alert('Geolocation is not supported by your browser');
+                    }
+                });
+            }
+            
+            // Form validation
+            const form = document.querySelector('form.validate-form');
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Basic validation
+                    let isValid = true;
+                    const password = document.getElementById('password');
+                    const confirmPassword = document.getElementById('confirm-password');
+                    
+                    if (password.value !== confirmPassword.value) {
+                        showErrorMessage(confirmPassword, 'Passwords do not match');
+                        isValid = false;
+                    } else {
+                        hideErrorMessage(confirmPassword);
+                    }
+                    
+                    if (password.value.length < 8) {
+                        showErrorMessage(password, 'Password must be at least 8 characters long');
+                        isValid = false;
+                    } else {
+                        hideErrorMessage(password);
+                    }
+                    
+                    if (isValid) {
+                        // Show success message (in real app would submit the form)
+                        alert('Registration successful! You will be redirected to login.');
+                        window.location.href = 'login.html';
+                    }
+                });
+            }
+            
+            function showErrorMessage(field, message) {
+                // Remove any existing error message
+                hideErrorMessage(field);
+                
+                // Create and insert error message
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'text-red-500 text-sm mt-1 error-message';
+                errorDiv.textContent = message;
+                field.parentNode.appendChild(errorDiv);
+                
+                // Add error class to field
+                field.classList.add('border-red-500');
+            }
+            
+            function hideErrorMessage(field) {
+                const errorMessage = field.parentNode.querySelector('.error-message');
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+                field.classList.remove('border-red-500');
+            }
+            
+            function fetchLocationName(lat, lng) {
+                // This would typically use a geocoding service like Google Maps API
+                // For this demo, we'll simulate it
+                setTimeout(() => {
+                    document.getElementById('location').value = 'Downtown Area';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
